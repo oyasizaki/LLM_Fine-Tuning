@@ -1,0 +1,126 @@
+############ installing nano ###########################
+
+apt update && apt install nano -y
+
+
+###################### Huggingface login ##########################
+
+pip install huggingface_hub
+huggingface-cli login
+
+################################## HF Token ######################################
+
+Read -      ******************
+
+Write -     ****************
+
+################# LLaMA-Factory installation #############
+
+git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git
+cd LLaMA-Factory
+pip install -e ".[torch,metrics]"
+
+################# Running LLaMA-Factory webui #############
+
+pip install pydantic==2.10.6  ### if you can't access the webui then use it
+
+llamafactory-cli webui
+
+
+########################### Directory ######################################
+
+cd LLaMA-Factory
+cd data
+nano dataset_info.json
+
+
+######################## Add this in the dataset_info.json file to add your custom dataset ####################################
+
+  "msf_malay_dialect": {
+    "hf_hub_url": "Oyasi/msdialect",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
+  }
+
+
+######################################### MalayMMLU  dataset #######################################################
+  "MalayMMLU_0": {
+    "hf_hub_url": "Oyasi/MalayMMLU_0",
+    "columns": {
+        "prompt": "prompt",
+        "query": "prompt",
+        "response": "answer",
+        "year": "year",
+        "subject": "subject",
+        "subject_eng": "subject_eng",
+        "category": "category",
+        "level": "level",
+        "options": "options",
+        "num_options": "num_options",
+        "key": "key"
+    }
+  },
+  "MalayMMLU_1": {
+    "hf_hub_url": "Oyasi/MalayMMLU_1",
+    "columns": {
+        "prompt": "prompt",
+        "query": "prompt",
+        "response": "answer",
+        "year": "year",
+        "subject": "subject",
+        "subject_eng": "subject_eng",
+        "category": "category",
+        "level": "level",
+        "options": "options",
+        "num_options": "num_options",
+        "key": "key",
+        "full_question_1shot": "full_question_1shot",
+        "full_question_1shot_llama": "full_question_1shot_llama"
+    }
+  },
+  "MalayMMLU_2": {
+    "hf_hub_url": "Oyasi/MalayMMLU_2",
+    "columns": {
+        "prompt": "prompt",
+        "query": "prompt",
+        "response": "answer",
+        "year": "year",
+        "subject": "subject",
+        "subject_eng": "subject_eng",
+        "category": "category",
+        "level": "level",
+        "options": "options",
+        "num_options": "num_options",
+        "key": "key",
+        "full_question_2shot": "full_question_2shot",
+        "full_question_2shot_llama": "full_question_2shot_llama"
+    }
+  },
+  "MalayMMLU_3": {
+    "hf_hub_url": "Oyasi/MalayMMLU_3",
+    "columns": {
+        "prompt": "prompt",
+        "query": "prompt",
+        "response": "answer",
+        "year": "year",
+        "subject": "subject",
+        "subject_eng": "subject_eng",
+        "category": "category",
+        "level": "level",
+        "options": "options",
+        "num_options": "num_options",
+        "key": "key",
+        "full_question_3shot": "full_question_3shot",
+        "full_question_3shot_llama": "full_question_3shot_llama"
+    }
+  },
+
+
+
+
+
+
+
